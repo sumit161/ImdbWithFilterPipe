@@ -1,0 +1,43 @@
+<h1 class="bg-primary text-white p-4 mb-4 text-center">IMDB With Filter Pipe</h1>
+<div class="col-sm8 offset-sm-2 m-4">
+  <label for="" class="col-sm-8 offset-sm-2"></label>
+  <input
+    type="text"
+    [(ngModel)]="search"
+    class="col-sm-8 offset-sm-2 form-control" placeholder="Search Movie Name"
+  />
+  <!-- {{ totalCount }} -->
+</div>
+<div class="container-fluid">
+  <div class="row" id="info">
+    <div class="col-sm-3" *ngFor="let item of movieArr | filter : search">
+      <div class="card mb-4">
+        <div class="card moviecard">
+          <figure class="moviecard">
+            <img src="{{ imgurl }}{{ item.backdrop_path }}" alt="" />
+            <figcaption class="text-white p-4 bg-dark">
+              <div class="row">
+                <div class="col-md-10">
+                  <h3>
+                    {{ item.title }}
+                  </h3>
+                </div>
+                <div class="col-md-2">
+                  <span class="rating">
+                    {{ item.vote_average }}
+                  </span>
+                </div>
+              </div>
+            </figcaption>
+            <div class="overview bg-white p-4">
+              <h4>overview</h4>
+              <p>
+                {{ item.overview }}
+              </p>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
